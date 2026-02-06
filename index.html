@@ -3,158 +3,241 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio | Full Stack Developer</title>
+  <title>Adarsh Doli | Software Engineer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=JetBrains+Mono:wght@300;500&family=Archivo:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;600&family=Oxanium:wght@300;500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="backdrop"></div>
-  <header class="hero container">
-    <nav class="nav reveal" style="--delay: 0ms;">
-      <div class="logo">YOUR NAME</div>
-      <div class="nav__links">
-        <a href="#projects">Projects</a>
-        <a href="#experience">Experience</a>
-        <a href="#skills">Technical Skills</a>
-        <a href="#contact">Contact</a>
+  <div class="jjk-loader" id="jjkLoader" aria-hidden="true">
+    <div class="loader__panel">
+      <div class="loader__symbol" aria-hidden="true">
+        <svg viewBox="0 0 120 120" role="img" aria-label="Sukuna sigil">
+          <path d="M60 18 L52 40 L24 50 L44 60 L24 70 L52 80 L60 102 L68 80 L96 70 L76 60 L96 50 L68 40 Z" />
+          <path d="M60 40 L56 56 L60 60 L64 56 Z" />
+        </svg>
       </div>
-    </nav>
+      <p>Domain Expansion</p>
+    </div>
+  </div>
 
-    <div class="hero__grid">
-      <div class="hero__content reveal" style="--delay: 120ms;">
-        <p class="eyebrow">Full Stack Developer</p>
-        <h1>Attack on Titan Inspired Portfolio</h1>
-        <p class="lead">
-          Placeholder summary about your mission, values, and the kind of products you build.
+  <div class="background"></div>
+
+  <div class="name-flash">Adarsh Doli</div>
+
+  <header class="hero">
+    <div class="hero__top">
+      <div class="hero__logo">Adarsh Doli</div>
+      <div class="hero__contact">
+        <a href="mailto:adarshdoli257@gmail.com">adarshdoli257@gmail.com</a>
+        <a href="tel:+17167088999">716-708-8999</a>
+        <a href="https://www.linkedin.com/in/adarsh-doli" class="jjk-link" data-href="https://www.linkedin.com/in/adarsh-doli">LinkedIn</a>
+        <a href="https://github.com/adarsh257" class="jjk-link" data-href="https://github.com/adarsh257">GitHub</a>
+      </div>
+    </div>
+
+    <div class="hero__content">
+      <div>
+        <p class="hero__eyebrow">Jujutsu Kaisen Themed Portfolio</p>
+        <h1 class="role-rotator role-rotator--big" id="roleRotator">Full Stack Developer</h1>
+        <p class="hero__summary">
+          Software Engineer with 2+ years of experience in full-stack development, cloud-native deployments, and AI/ML model support.
         </p>
-        <div class="actions">
-          <a class="btn btn--primary" href="assets/resume.pdf">Resume (PDF)</a>
-          <a class="btn btn--ghost" href="mailto:your.email@example.com">Email</a>
+        <div class="hero__actions">
+          <a class="btn btn--primary jjk-link" href="assets/resume.pdf" data-href="assets/resume.pdf">Resume (PDF)</a>
+          <a class="btn btn--ghost" href="mailto:adarshdoli257@gmail.com">Email</a>
         </div>
       </div>
 
-      <aside id="contact" class="contact-card aot-panel has-figure reveal" style="--delay: 220ms; --card-image: url('https://shingeki.tv/final/img/home/visual_04.jpg');">
-        <span class="card-figure" aria-hidden="true" style="--figure-image: url('https://shingeki.tv/final/img/home/visual_05.jpg');"></span>
-        <div class="card__title">Contact Card</div>
-        <div class="card__subtitle">Replace these details later.</div>
-        <div class="card__row">
-          <span>Name</span>
-          <span>YOUR NAME</span>
-        </div>
-        <div class="card__row">
-          <span>Location</span>
-          <span>City, Country</span>
-        </div>
-        <div class="card__row">
-          <span>Phone</span>
-          <span>+00 000 000 0000</span>
-        </div>
-        <div class="card__row">
-          <span>Email</span>
-          <span>your.email@example.com</span>
-        </div>
-        <div class="card__row">
-          <span>LinkedIn</span>
-          <span>linkedin.com/in/your-handle</span>
-        </div>
-        <div class="card__row">
-          <span>GitHub</span>
-          <span>github.com/your-handle</span>
-        </div>
-      </aside>
+      <div class="hero__card jjk-card">
+        <h3>Summary</h3>
+        <p>
+          Proficient in Java, Python, and SQL with hands-on expertise in scalable application design, data pipelines, and AI/ML systems.
+        </p>
+      </div>
     </div>
   </header>
 
-  <main class="container">
-    <section id="projects" class="section reveal" style="--delay: 300ms;">
-      <div class="section__header">
-        <h2>Projects</h2>
-        <p>Placeholder highlights. Swap each card with real project details later.</p>
-      </div>
-      <div class="cards">
-        <article class="card aot-panel has-figure" style="--card-image: url('https://shingeki.tv/final/img/home/visual_06.jpg');">
-          <span class="card-figure" aria-hidden="true" style="--figure-image: url('https://shingeki.tv/final/img/home/visual_06.jpg');"></span>
-          <h3>Project Name One</h3>
-          <p>Short description of the problem, solution, and impact.</p>
-          <div class="card__meta">Tech: Placeholder Stack</div>
+  <main>
+    <section class="section" id="experience">
+      <div class="section__title">Experience</div>
+      <div class="card-grid">
+        <article class="jjk-card">
+          <h4>Software Developer, Community Dreams Foundation — Remote</h4>
+          <p class="muted">July 2025 – Present</p>
+          <ul>
+            <li>Designed a production RAG platform using Python, LangChain agents, ChromaDB/Qdrant, AWS S3/EKS/Elastic Beanstalk, and CloudWatch.</li>
+            <li>Developed LLM microservices in Java Spring Boot, lifting throughput 45% and cutting p95 response time 30%.</li>
+            <li>Tuned Amazon RDS/Aurora for RAG workloads to achieve sub-second queries and 30% storage cost reduction.</li>
+          </ul>
         </article>
-        <article class="card aot-panel has-figure" style="--card-image: url('https://shingeki.tv/final/img/home/visual_07.jpg');">
-          <span class="card-figure" aria-hidden="true" style="--figure-image: url('https://shingeki.tv/final/img/home/visual_07.jpg');"></span>
-          <h3>Project Name Two</h3>
-          <p>Short description of the problem, solution, and impact.</p>
-          <div class="card__meta">Tech: Placeholder Stack</div>
+
+        <article class="jjk-card">
+          <h4>Software Developer, Alorasoft Inc — Dallas, TX</h4>
+          <p class="muted">June 2024 – Jan 2025</p>
+          <ul>
+            <li>Engineered backend services with Java and Spring Boot to power a cloud-based student learning platform.</li>
+            <li>Integrated RESTful APIs across dashboards and assessments, improving workflow efficiency by 20%.</li>
+            <li>Implemented real-time tracking with Kafka and WebSockets; optimized PostgreSQL queries by 40%.</li>
+            <li>Automated deployments with Docker and Kubernetes for zero-downtime updates.</li>
+          </ul>
         </article>
-        <article class="card aot-panel has-figure" style="--card-image: url('https://shingeki.tv/final/img/home/visual_08.jpg');">
-          <span class="card-figure" aria-hidden="true" style="--figure-image: url('https://shingeki.tv/final/img/home/visual_08.jpg');"></span>
-          <h3>Project Name Three</h3>
-          <p>Short description of the problem, solution, and impact.</p>
-          <div class="card__meta">Tech: Placeholder Stack</div>
+
+        <article class="jjk-card">
+          <h4>Associate Software Engineer, Hakri Software Services — Hyderabad, India</h4>
+          <p class="muted">Jan 2023 – Jan 2024</p>
+          <ul>
+            <li>Developed a recommendation engine with Python, Pandas, and Scikit-learn, improving retention by 12%.</li>
+            <li>Established version control for ML models and datasets with Git and DVC for reproducibility.</li>
+            <li>Designed automated ETL pipelines with Apache Airflow and Docker.</li>
+            <li>Deployed systems on AWS and built a customer portal with React and Flask APIs.</li>
+          </ul>
         </article>
       </div>
     </section>
 
-    <section id="experience" class="section reveal" style="--delay: 380ms;">
-      <div class="section__header">
-        <h2>Experience</h2>
-        <p>Placeholder roles to be replaced with your actual positions.</p>
-      </div>
-      <div class="timeline">
-        <div class="timeline__item aot-panel has-figure" style="--card-image: url('https://shingeki.tv/final/img/home/visual_01.jpg');">
-          <span class="card-figure" aria-hidden="true" style="--figure-image: url('https://shingeki.tv/final/img/home/visual_01.jpg');"></span>
-          <div class="timeline__role">Company Name — Full Stack Developer</div>
-          <div class="timeline__date">YYYY - YYYY</div>
-          <p>Describe the scope, key wins, and technologies used.</p>
-        </div>
-        <div class="timeline__item aot-panel has-figure" style="--card-image: url('https://shingeki.tv/final/img/home/visual_02.jpg');">
-          <span class="card-figure" aria-hidden="true" style="--figure-image: url('https://shingeki.tv/final/img/home/visual_02.jpg');"></span>
-          <div class="timeline__role">Company Name — Software Engineer</div>
-          <div class="timeline__date">YYYY - YYYY</div>
-          <p>Describe the scope, key wins, and technologies used.</p>
-        </div>
-        <div class="timeline__item aot-panel has-figure" style="--card-image: url('https://shingeki.tv/final/img/home/visual_03.jpg');">
-          <span class="card-figure" aria-hidden="true" style="--figure-image: url('https://shingeki.tv/final/img/home/visual_03.jpg');"></span>
-          <div class="timeline__role">Company Name — Intern</div>
-          <div class="timeline__date">YYYY - YYYY</div>
-          <p>Describe the scope, key wins, and technologies used.</p>
-        </div>
+    <section class="section" id="projects">
+      <div class="section__title">Projects</div>
+      <div class="card-grid">
+        <article class="jjk-card">
+          <h4>Weather Streaming Project</h4>
+          <ul>
+            <li>Designed Java microservices for real-time weather data processing with Kafka and Flink.</li>
+            <li>Improved performance with Redis/Ehcache and optimized PostgreSQL queries.</li>
+          </ul>
+          <a class="btn btn--ghost btn--small jjk-link" href="https://github.com/adarsh257" data-href="https://github.com/adarsh257">GitHub</a>
+        </article>
+
+        <article class="jjk-card">
+          <h4>Customer Support Chatbot</h4>
+          <ul>
+            <li>Launched a chatbot powered by LLaMA-3.1-8B with LoRA fine-tuning and quantization.</li>
+            <li>Built scalable ML pipeline with Flask APIs and Docker on AWS ECS Fargate.</li>
+            <li>Automated CI/CD with AWS CodePipeline and monitored performance with CloudWatch.</li>
+          </ul>
+          <a class="btn btn--ghost btn--small jjk-link" href="https://github.com/adarsh257" data-href="https://github.com/adarsh257">GitHub</a>
+        </article>
       </div>
     </section>
 
-    <section id="skills" class="section reveal" style="--delay: 460ms;">
-      <div class="section__header">
-        <h2>Technical Skills</h2>
-        <p>Placeholder skill clusters for quick replacement.</p>
+    <section class="section" id="skills">
+      <div class="section__title">Technical Skills</div>
+      <div class="card-grid">
+        <article class="jjk-card">
+          <h4>Programming</h4>
+          <p>Java, Python, Go (Golang)</p>
+        </article>
+        <article class="jjk-card">
+          <h4>Frameworks & Libraries</h4>
+          <p>Flask, Spring, React, Node.js, TensorFlow, PyTorch</p>
+        </article>
+        <article class="jjk-card">
+          <h4>Databases</h4>
+          <p>PostgreSQL, MongoDB, DynamoDB, Hadoop, Kafka</p>
+        </article>
+        <article class="jjk-card">
+          <h4>Cloud & DevOps</h4>
+          <p>AWS, Cloudflare, Kubernetes, Docker, Git, n8n, RESTful APIs, Linux</p>
+        </article>
+        <article class="jjk-card">
+          <h4>AI/ML</h4>
+          <p>Computer Vision, LangChain, Distributed Computing, RAG</p>
+        </article>
       </div>
-      <div class="skills">
-        <div class="skill-group aot-panel has-figure" style="--card-image: url('https://shingeki.tv/final/img/home/visual_04.jpg');">
-          <span class="card-figure" aria-hidden="true" style="--figure-image: url('https://shingeki.tv/final/img/home/visual_04.jpg');"></span>
-          <h4>Languages</h4>
-          <p>JavaScript, TypeScript, Python, Go</p>
-        </div>
-        <div class="skill-group aot-panel has-figure" style="--card-image: url('https://shingeki.tv/final/img/home/visual_05.jpg');">
-          <span class="card-figure" aria-hidden="true" style="--figure-image: url('https://shingeki.tv/final/img/home/visual_05.jpg');"></span>
-          <h4>Frontend</h4>
-          <p>React, Next.js, Tailwind, Storybook</p>
-        </div>
-        <div class="skill-group aot-panel has-figure" style="--card-image: url('https://shingeki.tv/final/img/home/visual_06.jpg');">
-          <span class="card-figure" aria-hidden="true" style="--figure-image: url('https://shingeki.tv/final/img/home/visual_06.jpg');"></span>
-          <h4>Backend</h4>
-          <p>Node.js, Express, PostgreSQL, Redis</p>
-        </div>
-        <div class="skill-group aot-panel has-figure" style="--card-image: url('https://shingeki.tv/final/img/home/visual_07.jpg');">
-          <span class="card-figure" aria-hidden="true" style="--figure-image: url('https://shingeki.tv/final/img/home/visual_07.jpg');"></span>
-          <h4>DevOps</h4>
-          <p>Docker, CI/CD, Cloud Platforms</p>
-        </div>
+    </section>
+
+    <section class="section" id="education">
+      <div class="section__title">Education</div>
+      <div class="card-grid">
+        <article class="jjk-card">
+          <h4>University at Buffalo - SUNY</h4>
+          <p>Master of Science, Computer Science — GPA: 3.3/4.0</p>
+          <p class="muted">Jan 2024 – June 2025</p>
+        </article>
+        <article class="jjk-card">
+          <h4>Vellore Institute of Technology, Vellore</h4>
+          <p>Electronics and Communication Engineering, GPA: 8.3/10</p>
+          <p class="muted">2019 – 2023</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="section__title">Contact</div>
+      <div class="card-grid">
+        <article class="jjk-card">
+          <h4>Contact Info</h4>
+          <p>Email: adarshdoli257@gmail.com</p>
+          <p>Phone: 716-708-8999</p>
+          <p>LinkedIn: https://www.linkedin.com/in/adarsh-doli</p>
+          <p>GitHub: https://github.com/adarsh257</p>
+        </article>
       </div>
     </section>
   </main>
 
-  <footer class="footer container reveal" style="--delay: 540ms;">
-    <div class="footer__line"></div>
-    <p>Replace this footer note with your signature or call to action.</p>
+  <footer class="footer">
+    <p>Replace images, links, and resume anytime by updating the assets and URLs.</p>
   </footer>
+
+  <script>
+    const roles = [
+      "Full Stack Developer",
+      "Application Support",
+      "AI/ML Engineer"
+    ];
+    const roleEl = document.getElementById("roleRotator");
+    let roleIndex = 0;
+
+    const buildLetters = (text, mode) => {
+      const wrapper = document.createElement("span");
+      wrapper.className = `role-letters ${mode}`;
+      [...text].forEach((char, index) => {
+        const span = document.createElement("span");
+        span.textContent = char === " " ? "\u00A0" : char;
+        span.style.setProperty("--i", index);
+        wrapper.appendChild(span);
+      });
+      return wrapper;
+    };
+
+    const swapRole = () => {
+      const currentText = roles[roleIndex];
+      const outWrapper = buildLetters(currentText, "is-out");
+      roleEl.replaceChildren(outWrapper);
+
+      setTimeout(() => {
+        roleIndex = (roleIndex + 1) % roles.length;
+        const nextText = roles[roleIndex];
+        const inWrapper = buildLetters(nextText, "is-in");
+        roleEl.replaceChildren(inWrapper);
+      }, 760);
+    };
+
+    roleEl.replaceChildren(buildLetters(roles[0], "is-in"));
+    setInterval(swapRole, 3000);
+
+    const loader = document.getElementById("jjkLoader");
+    const showLoader = () => loader.classList.add("is-visible");
+    const hideLoader = () => loader.classList.remove("is-visible");
+
+    window.addEventListener("load", () => {
+      showLoader();
+      setTimeout(hideLoader, 1700);
+    });
+
+    document.querySelectorAll(".jjk-link").forEach((link) => {
+      link.addEventListener("click", (event) => {
+        const href = link.dataset.href || link.getAttribute("href");
+        if (!href) return;
+        event.preventDefault();
+        showLoader();
+        setTimeout(() => {
+          window.location.href = href;
+        }, 900);
+      });
+    });
+  </script>
 </body>
 </html>
