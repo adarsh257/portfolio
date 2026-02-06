@@ -5,8 +5,9 @@
   --neon-blue: #4bd2ff;
   --text-main: #f6f1f1;
   --text-muted: #b5b0b0;
-  --card-bg: rgba(10, 10, 12, 0.78);
-  --card-border: rgba(255, 255, 255, 0.08);
+  --card-bg: #0a0a0c;
+  --card-border: rgba(196, 31, 45, 0.4);
+  --card-glow: 0 0 15px rgba(196, 31, 45, 0.2);
 }
 
 * {
@@ -29,60 +30,95 @@ a {
   text-decoration: none;
 }
 
+/* Background Styles */
 .background {
   position: fixed;
   inset: 0;
-  background:
-    linear-gradient(120deg, rgba(5, 5, 6, 0.55), rgba(5, 5, 6, 0.25)),
-    radial-gradient(circle at top, rgba(196, 31, 45, 0.35), transparent 55%),
-    url("https://jujutsukaisen.jp/images/top/mv_s3-2.jpg") center/cover no-repeat;
   z-index: -2;
-  animation: backgroundDrift 18s ease-in-out infinite alternate;
+  overflow: hidden;
 }
 
-@keyframes backgroundDrift {
-  0% { background-position: center; }
-  100% { background-position: 60% 40%; }
+.video-background {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100vw;
+  height: 100vh;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.video-background iframe {
+  width: 100vw;
+  height: 56.25vw;
+  /* Given a 16:9 aspect ratio */
+  min-height: 100vh;
+  min-width: 177.77vh;
+  /* Given a 16:9 aspect ratio */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1.2);
+  /* Scale up specifically to remove black bars */
+  pointer-events: none;
+}
+
+.background__overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.8) 100%);
+  z-index: 1;
+}
+
+@media (min-aspect-ratio: 16/9) {
+  .video-background iframe {
+    height: 56.25vw;
+  }
+}
+
+@media (max-aspect-ratio: 16/9) {
+  .video-background iframe {
+    width: 177.78vh;
+  }
 }
 
 .jjk-loader {
   position: fixed;
   inset: 0;
-  background: rgba(2, 2, 3, 0.95);
+  background: #000;
   display: grid;
   place-items: center;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
   z-index: 1000;
+  /* Fluid smoke reveal effect */
+  transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
 }
 
-.jjk-loader.is-visible {
-  opacity: 1;
-  pointer-events: auto;
+.jjk-loader.is-hidden {
+  opacity: 0;
+  visibility: hidden;
 }
 
 .loader__panel {
   text-align: center;
   font-family: "Oxanium", sans-serif;
   letter-spacing: 0.08em;
+  animation: fadeOutUp 0.8s ease-in-out 1.2s forwards;
 }
 
 .loader__symbol {
-  width: 120px;
-  height: 120px;
+  width: 140px;
+  height: auto;
   margin: 0 auto 16px;
-  display: grid;
-  place-items: center;
-  filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.6));
-  animation: pulse 1.6s ease-in-out infinite;
+  display: flex;
+  justify-content: center;
+  filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.5));
+  animation: pulse 2s ease-in-out infinite;
 }
 
-.loader__symbol svg {
-  width: 90px;
-  height: 90px;
-  fill: #fff;
-  opacity: 0.95;
+.sukuna-symbol {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 .loader__panel p {
@@ -90,11 +126,28 @@ a {
   color: var(--text-muted);
   margin-top: 6px;
   text-transform: uppercase;
+  letter-spacing: 0.2em;
 }
 
 @keyframes pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.08); }
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOutUp {
+  to {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
 }
 
 .name-flash {
@@ -111,10 +164,23 @@ a {
 }
 
 @keyframes flash {
-  0% { opacity: 0; transform: translateY(-6px); }
-  15% { opacity: 1; transform: translateY(0); }
-  70% { opacity: 1; }
-  100% { opacity: 0; }
+  0% {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+
+  15% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  70% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
 }
 
 .hero {
@@ -152,9 +218,12 @@ a {
 .hero__content {
   margin-top: 40px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 32px;
-  align-items: start;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  /* Increased min-width to prevent squishing */
+  gap: 60px;
+  /* Increased gap to separate text and summary card */
+  align-items: center;
+  /* Center align items to handle height diffs better */
 }
 
 .hero__eyebrow {
@@ -188,7 +257,8 @@ h1 {
 
 .role-letters {
   display: inline-block;
-  white-space: nowrap;
+  white-space: normal;
+  /* Allow wrapping to prevent overlap */
 }
 
 .role-letters span {
@@ -207,13 +277,31 @@ h1 {
 }
 
 @keyframes letterIn {
-  0% { opacity: 0; filter: blur(6px); transform: translateY(10px) scale(0.95); }
-  100% { opacity: 1; filter: blur(0); transform: translateY(0) scale(1); }
+  0% {
+    opacity: 0;
+    filter: blur(6px);
+    transform: translateY(10px) scale(0.95);
+  }
+
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0) scale(1);
+  }
 }
 
 @keyframes letterOut {
-  0% { opacity: 1; filter: blur(0); transform: translateY(0) scale(1); }
-  100% { opacity: 0; filter: blur(10px); transform: translateY(-18px) scale(0.9); }
+  0% {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0) scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    filter: blur(10px);
+    transform: translateY(-18px) scale(0.9);
+  }
 }
 
 .hero__summary {
@@ -280,11 +368,20 @@ h1 {
   padding: 24px;
   background: var(--card-bg);
   border: 1px solid var(--card-border);
-  border-radius: 18px;
-  backdrop-filter: blur(6px);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
   overflow: hidden;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  box-shadow: var(--card-glow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
+
+.jjk-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 25px rgba(196, 31, 45, 0.4);
+  border-color: var(--blood-red);
+}
+
+/* Audio Control Styles Removed */
 
 .jjk-card h3,
 .jjk-card h4 {
@@ -300,6 +397,31 @@ h1 {
 
 .jjk-card p {
   color: var(--text-muted);
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.skill-tag {
+  background: rgba(196, 31, 45, 0.1);
+  border: 1px solid rgba(196, 31, 45, 0.3);
+  color: var(--text-main);
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-family: "Oxanium", sans-serif;
+  transition: all 0.2s ease;
+}
+
+.skill-tag:hover {
+  background: rgba(196, 31, 45, 0.25);
+  border-color: var(--blood-red);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(196, 31, 45, 0.2);
 }
 
 .muted {
@@ -323,5 +445,62 @@ h1 {
 
   .hero {
     padding: 40px 6vw 30px;
+  }
+}
+
+/* Cursed Energy Theme Enhancements */
+:root {
+  --cursed-cyan: #00ffff;
+  --cursed-blue: #00bfff;
+  --cursed-purple: #8a2be2;
+}
+
+h1,
+h2,
+h3,
+.section__title,
+.name-flash,
+.loader__panel {
+  font-family: "Yuji Boku", "Oxanium", serif !important;
+  letter-spacing: 0.05em;
+}
+
+.jjk-card h4 {
+  font-family: "Rubik Glitch", "Oxanium", sans-serif;
+  letter-spacing: 0.1em;
+  color: var(--cursed-cyan);
+  text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+}
+
+.jjk-card,
+.skill-tag,
+.summary-card {
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.3),
+    0 0 20px rgba(0, 0, 255, 0.2);
+  animation: cursed-pulse 3s infinite alternate;
+  border: 1px solid rgba(0, 255, 255, 0.2);
+}
+
+.skill-tag {
+  background: rgba(10, 10, 12, 0.8);
+  font-family: "Oxanium", sans-serif;
+  /* Keep skills readable */
+  border-color: rgba(0, 255, 255, 0.4);
+}
+
+@keyframes cursed-pulse {
+  0% {
+    box-shadow: 0 0 8px rgba(0, 255, 255, 0.3),
+      0 0 15px rgba(0, 0, 255, 0.2);
+  }
+
+  50% {
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.5),
+      0 0 25px rgba(138, 43, 226, 0.4);
+  }
+
+  100% {
+    box-shadow: 0 0 8px rgba(0, 255, 255, 0.3),
+      0 0 15px rgba(0, 0, 255, 0.2);
   }
 }
